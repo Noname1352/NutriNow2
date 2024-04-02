@@ -35,10 +35,12 @@ export default {
     },
     methods: {
         Login() {
-            if (this.name == 'Radik' & this.password == 'qwerasdf') {
-                this.islogin = true
-                localStorage.data = {name: 'Radik', gender: 'Man', password: 'qwerasdf'}
-            }
+            this.islogin = true
+            localStorage.data = {name: 'Radik', gender: 'Man', password: 'qwerasdf'}
+            // if (this.name == 'Radik' & this.password == 'qwerasdf') {
+            //     this.islogin = true
+            //     localStorage.data = {name: 'Radik', gender: 'Man', password: 'qwerasdf'}
+            // }
             // const request = JSON.stringify({
             //     name: this.name,
             //     password: this.password
