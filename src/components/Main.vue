@@ -200,7 +200,7 @@ export default {
         return {
             islogin: false,
             caloriesRequired: localStorage.data,
-            part: 6,
+            part: 1,
             act: 1.2,
             diet: 2,
             weight: 50,
