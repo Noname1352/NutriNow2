@@ -39,13 +39,14 @@ export default {
                 this.islogin = true
                 localStorage.data = JSON.stringify({name: 'Radik', gender: 'Man', password: 'qwerasdf'})
             }
-            else if(this.name == localStorage.lastuser[0] & this.password == localStorage.lastuser[1]) {
-                this.islogin = true
-                localStorage.data = JSON.stringify({name: localStorage.lastuser[0], gender: localStorage.lastuser[1], password: this.password})
+            else if(localStorage.lastuser) {
+                if (this.name == localStorage.lastuser[0] & this.password == localStorage.lastuser[1]) {
+                    this.islogin = true
+                    localStorage.data = JSON.stringify({name: localStorage.lastuser[0], gender: localStorage.lastuser[1], password: this.password})
+                }
+                else alert('Логин или пароль указан неверно')
             }
-            else {
-                alert('Логин или пароль указан неверно')
-            }
+            else alert('Логин или пароль указан неверно')
         }
     }
 }

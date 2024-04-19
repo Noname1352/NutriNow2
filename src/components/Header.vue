@@ -20,7 +20,9 @@ export default {
     methods: {
         Unauth() {
             this.islogin = false
+            const l = localStorage.lastuser
             localStorage.clear()
+            localStorage.lastuser = l
         }
     },
     mounted() {

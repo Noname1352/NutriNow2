@@ -46,13 +46,26 @@ export default {
     },
     methods: {
         Register() {
+            console.log(localStorage.lastuser)
             if (this.name == 'Radik' | this.name == localStorage.lastuser ) {
                 alert('Аккаунт с текущим именем уже существует')
+            }
+            else if (localStorage.lastuser) {
+                if (this.name == localStorage.lastuser[0] & this.password == localStorage.lastuser[1]) {
+                    alert('Аккаунт с текущим именем уже существует')
+                }
+                else {
+                    this.islogin = true
+                    localStorage.data = JSON.stringify({name: this.name, gender: this.gender, password: this.password})
+                    localStorage.lastuser = [this.name, this.gender, this.password]
+                    console.log(localStorage.lastuser)
+                }
             }
             else {
                 this.islogin = true
                 localStorage.data = JSON.stringify({name: this.name, gender: this.gender, password: this.password})
                 localStorage.lastuser = [this.name, this.gender, this.password]
+                console.log(localStorage.lastuser)
             }
         }
     }
