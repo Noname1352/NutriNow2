@@ -21,7 +21,8 @@ export default {
         return {
             name: '',
             password: '',
-            islogin: false
+            islogin: false,
+            users: ''
         }
     },
     components: { AfterLogin },
@@ -35,12 +36,13 @@ export default {
     },
     methods: {
         Login() {
+            this.users = localStorage.lastuser.split(",")
             if (this.name == 'Radik' & this.password == 'qwer') {
                 this.islogin = true
                 localStorage.data = JSON.stringify({name: 'Radik', gender: 'Man', password: 'qwerasdf'})
             }
-            else if(localStorage.lastuser) {
-                if (this.name == localStorage.lastuser[0] & this.password == localStorage.lastuser[1]) {
+            else if(this.users) {
+                if (this.name == this.users[0] & this.password == this.users[2]) {
                     this.islogin = true
                     localStorage.data = JSON.stringify({name: localStorage.lastuser[0], gender: localStorage.lastuser[1], password: this.password})
                 }

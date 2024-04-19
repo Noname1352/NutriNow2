@@ -32,7 +32,8 @@ export default {
             name: '',
             gender: 'Man',
             password: '',
-            islogin: false
+            islogin: false,
+            users: []
         }
     },
     components: { AfterLogin },
@@ -46,26 +47,24 @@ export default {
     },
     methods: {
         Register() {
-            console.log(localStorage.lastuser)
-            if (this.name == 'Radik' | this.name == localStorage.lastuser ) {
+            this.users = localStorage.lastuser.split(",")
+            if (this.name == 'Radik' | this.name == this.users ) {
                 alert('Аккаунт с текущим именем уже существует')
             }
-            else if (localStorage.lastuser) {
-                if (this.name == localStorage.lastuser[0] & this.password == localStorage.lastuser[1]) {
+            else if (this.users) {
+                if (this.name == this.users[0] & this.password == this.users[2]) {
                     alert('Аккаунт с текущим именем уже существует')
                 }
                 else {
                     this.islogin = true
                     localStorage.data = JSON.stringify({name: this.name, gender: this.gender, password: this.password})
                     localStorage.lastuser = [this.name, this.gender, this.password]
-                    console.log(localStorage.lastuser)
                 }
             }
             else {
                 this.islogin = true
                 localStorage.data = JSON.stringify({name: this.name, gender: this.gender, password: this.password})
                 localStorage.lastuser = [this.name, this.gender, this.password]
-                console.log(localStorage.lastuser)
             }
         }
     }
