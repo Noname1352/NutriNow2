@@ -46,25 +46,14 @@ export default {
     },
     methods: {
         Register() {
-            const request = JSON.stringify({
-                name: this.name,
-                gender: this.gender,
-                password: this.password
-            })
-            axios({
-                method: 'POST',
-                url: 'http://localhost:3000/register',
-                data: request
-            })
-            .then(res => {
-                if (res.data == 'Аккаунт успешно создан'){
-                    localStorage.data = JSON.stringify({id: this.id, name: this.name, gender: this.gender, password: this.password})
-                    this.islogin = true
-                }
-                else {
-                    alert(res.data)
-                }
-            })
+            if (this.name == 'Radik' | this.name == localStorage.lastuser ) {
+                alert('Аккаунт с текущим именем уже существует')
+            }
+            else {
+                this.islogin = true
+                localStorage.data = JSON.stringify({name: this.name, gender: this.gender, password: this.password})
+                localStorage.lastuser = [this.name, this.gender, this.password]
+            }
         }
     }
 }

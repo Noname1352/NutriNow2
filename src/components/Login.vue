@@ -35,32 +35,17 @@ export default {
     },
     methods: {
         Login() {
-            this.islogin = true
-            localStorage.data = {name: 'Radik', gender: 'Man', password: 'qwerasdf'}
-            // if (this.name == 'Radik' & this.password == 'qwerasdf') {
-            //     this.islogin = true
-            //     localStorage.data = {name: 'Radik', gender: 'Man', password: 'qwerasdf'}
-            // }
-            // const request = JSON.stringify({
-            //     name: this.name,
-            //     password: this.password
-            // })
-
-            // axios({
-            //     method: 'POST',
-            //     url: 'http://localhost:3000/login',
-            //     data: request
-            // })
-            // .then(res => {
-            //     if (res.data != 'Логин или пароль указан неверно'){
-            //         console.log(res.data)
-            //         localStorage.data = JSON.stringify(res.data)
-            //         this.islogin = true
-            //     }
-            //     else {
-            //         alert('Логин или пароль указан неверно')
-            //     }
-            // })
+            if (this.name == 'Radik' & this.password == 'qwer') {
+                this.islogin = true
+                localStorage.data = JSON.stringify({name: 'Radik', gender: 'Man', password: 'qwerasdf'})
+            }
+            else if(this.name == localStorage.lastuser[0] & this.password == localStorage.lastuser[1]) {
+                this.islogin = true
+                localStorage.data = JSON.stringify({name: localStorage.lastuser[0], gender: localStorage.lastuser[1], password: this.password})
+            }
+            else {
+                alert('Логин или пароль указан неверно')
+            }
         }
     }
 }
