@@ -51,11 +51,11 @@ export default {
             if (this.users != undefined) {
                 this.users = this.users.split(',')
             }
-            if (this.name == 'Radik' | this.name == this.users ) {
+            if (this.name == 'Radik') {
                 alert('Аккаунт с текущим именем уже существует')
             }
             else if (this.users) {
-                if (this.name == this.users[0] & this.password == this.users[2]) {
+                if (this.name == this.users[0]) {
                     alert('Аккаунт с текущим именем уже существует')
                 }
                 else {
