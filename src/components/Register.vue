@@ -47,7 +47,11 @@ export default {
     },
     methods: {
         Register() {
-            this.users = localStorage.lastuser.split(",")
+            this.users = localStorage.lastuser
+            if (this.users != undefined) {
+                alert(this.users)
+                this.users = this.users.split(',')
+            }
             if (this.name == 'Radik' | this.name == this.users ) {
                 alert('Аккаунт с текущим именем уже существует')
             }
