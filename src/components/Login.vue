@@ -38,7 +38,6 @@ export default {
         Login() {
             this.users = localStorage.lastuser
             if (this.users != undefined) {
-                alert(this.users)
                 this.users = this.users.split(',')
             }
             if (this.name == 'Radik' & this.password == 'qwer') {
