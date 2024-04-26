@@ -36,7 +36,10 @@ export default {
     },
     methods: {
         Login() {
-            this.users = localStorage.lastuser.split(",")
+            this.users = localStorage.lastuser
+            if (this.users != '') {
+                this.users = this.users.split(',')
+            }
             if (this.name == 'Radik' & this.password == 'qwer') {
                 this.islogin = true
                 localStorage.data = JSON.stringify({name: 'Radik', gender: 'Man', password: 'qwerasdf'})
